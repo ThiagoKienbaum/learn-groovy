@@ -2,11 +2,15 @@ package aulas
 
 import org.junit.Test
 import classes.Cliente
+import classes.Conexao
+import classes.Funcionario
 import classes.Nota
+import classes.Pedido
 import classes.Pessoa
 import classes.Produto as Pd
 import classes.Soma
 import classes.Venda
+import classes.Teste
 
 class Exercicios {
 	
@@ -202,9 +206,82 @@ class Exercicios {
 	
 	@Test
 	void Exercicio14() {
+		Funcionario f = new Funcionario(nome: "Ana", idade: 23, salario: 3200)
+		println f
+	}
+	
+	@Test
+	void Exercicio15() {
+		Funcionario f1 = new Funcionario(nome: "Carlos", idade: 20, salario: 1300)
+		Funcionario f2 = new Funcionario(nome: "Carlos", idade: 20, salario: 1300)
+		println f1.equals(f2)
+		println f2.equals(f1)
+	}
+	
+	@Test
+	void Exercicio16() {
+		Pedido p = new Pedido(nome: "Thiago", numero: 15)
+		println p
+		// p.nome = "Aline"
+	}
+	
+	//Estudar
+	@Test
+	void Exercicio17() {
+		Conexao.instance.valor = 10
+		println Conexao.instance.valor
+		Conexao con = Conexao.instance
+		con.valor = 11
+		println Conexao.instance.valor
 		
 	}
 	
+	//Builder Estudar
+	@Test
+	void Exercicio18() {}
+	
+	@Test
+	void Exercicio19() {
+		def objeto = "Texto"
+		println objeto.getClass()		
+		objeto = 10
+		println objeto.getClass()
+		objeto = 11.12
+		println objeto.getClass()		
+		objeto = new Funcionario(nome: "Thiago")
+		println objeto.getClass()
+		
+	}
+	
+	@Test
+	void Exercicio20() {
+		def teste = new Teste()
+		
+		def valor = teste.metodo("Thiago")
+		println valor
+		println valor.getClass()
+		valor = teste.metodo(5)
+		println valor
+		println valor.getClass()		
+	}
+	
+	@Test
+	void Exercicio21() {
+		def colecao = new ArrayList<String>()
+		colecao.add("Thiago")
+		colecao.add("Aline")
+		colecao.add("Opie")
+		for (item in colecao) {
+			println item
+		}
+		colecao = new ArrayList<Integer>()
+		colecao.add(8)
+		colecao.add(12)
+		colecao.add(16)
+		for (item in colecao) {
+			println item
+		}
+	}
 }
 
 
