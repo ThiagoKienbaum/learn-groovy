@@ -2,7 +2,11 @@ package aulas
 
 import org.junit.Test
 import classes.Cliente
+import classes.Nota
+import classes.Pessoa
 import classes.Produto as Pd
+import classes.Soma
+import classes.Venda
 
 class Exercicios {
 	
@@ -74,6 +78,133 @@ class Exercicios {
 		println "Produto $p.nome\nPreço: R\$ $p.preco"
 		
 	}
+	
+	@Test
+	void Exercicio7() {
+		Venda v = new Venda()
+
+		println v.vender(100)		
+		println v.vender(100, 10)		
+	}
+	
+	@Test
+	void Exercicio8() {
+		Soma soma = new Soma()
+		
+		println soma.somar(8)
+		println soma.somar(8, 10)
+		println soma.somar(8, 10, 12)
+	}
+	
+	@Test
+	void Exercicio9() {
+		Cliente c = null		
+		println c?.nome;
+	}
+	
+	@Test
+	void Exercicio10() {
+		ArrayList<String> colecao = new ArrayList<>()
+		colecao.add("Thiago")
+		colecao.add("Aline")
+		colecao.add(null)
+		colecao.add("Opie")
+		
+		println colecao*.toUpperCase()
+	}
+	
+	@Test
+	void Exercicio11() {
+		URL url = new URL("http://www.google.com.br")
+		println url	
+	}
+	
+	@Test
+	void Exercicio12() {
+		String nome = null
+		
+		if(nome) {
+			println true
+		}
+		else {
+			println false
+		}
+		
+		nome = "Thiago"
+		
+		if(nome) {
+			println true
+		}
+		else {
+			println false
+		}
+		
+		int num = 0
+		
+		if(num) {
+			println true
+		}
+		else {
+			println false
+		}
+		
+		num = 1
+		
+		if(num) {
+			println true
+		}
+		else {
+			println false
+		}
+		
+		ArrayList<String> lista = new ArrayList<>()
+		
+		if(lista) {
+			println true
+		}
+		else {
+			println false
+		}
+		
+		lista.add("Aline")
+		
+		if(lista) {
+			println true
+		}
+		else {
+			println false
+		}		
+	}
+	
+	@Test
+	void Exercicio13() {
+		Nota n1 = new Nota(itens: 2, valor: 10)
+		Nota n2 = new Nota(itens: 9, valor: 35)
+		Nota n3 = n1 + n2
+		
+		println n3.valor + " - " + n3.itens		
+		n1++
+		println n1.itens + " - " + n1.valor
+		
+		BigDecimal x = 10		
+		x += x
+		println x		
+		x++
+		println x	
+		
+		Pessoa p1 = new Pessoa(nome: "Homem", arma: "espada")
+		println p1.correr()
+		println p1.falar()
+		println p1.pular()
+		println p1.lutar()
+		
+	}
+	
+	@Test
+	void Exercicio14() {
+		
+	}
+	
 }
 
 
